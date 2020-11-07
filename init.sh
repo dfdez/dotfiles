@@ -1,7 +1,5 @@
 sudo apt update
-sudo apt install zsh -y
-sudo apt install stow -y
-sudo apt install wget -y
+sudo apt install git zsh stow wget -y
 
 sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 chsh -s $(which zsh)
