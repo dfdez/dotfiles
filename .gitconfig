@@ -1,0 +1,5 @@
+[user]
+	email = this.codexjs@gmail.com
+	name = CodexJs
+[core]
+	excludesfile = /home/codex/.gitignore_global
