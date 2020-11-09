@@ -39,6 +39,12 @@ rm -r nvim-linux64*
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
+# Neovim checkhealth
+npm install -g neovim typescript prettier -y
+apt install python3-pip python-pip -y
+pip3 install neovim
+pip install neovim
+
 mkdir -p ~/.config/nvim
 mkdir -p ~/.vim
 
