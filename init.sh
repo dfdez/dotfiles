@@ -48,6 +48,9 @@ pip install neovim
 mkdir -p ~/.config/nvim
 mkdir -p ~/.vim
 
+# tmux
+apt install tmux -y
+
 # Apply dotfile
 stow --adopt --ignore init.sh --ignore .git -t ~ .
 
