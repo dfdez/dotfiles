@@ -4,10 +4,6 @@ ZSH_THEME="robbyrussell"
 
 plugins=(git zsh-autosuggestions zsh-completions zsh-syntax-highlighting)
 
-source $ZSH/oh-my-zsh.sh
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 # vi mode
 bindkey -v
 export KEYTIMEOUT=1
@@ -44,7 +40,10 @@ preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 # nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Load ohmzsh and fzf
+source $ZSH/oh-my-zsh.sh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 alias vim=nvim
 alias vi=nvim

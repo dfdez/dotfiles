@@ -20,7 +20,14 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
 # Install node
-nvm install node
+nvm install 14
+
+# Yarn
+apt install gnupg2 -y
+curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
+echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
+apt update
+apt install yarn -y
 
 # vim
 wget https://github.com/neovim/neovim/releases/download/nightly/nvim-linux64.tar.gz
@@ -32,13 +39,15 @@ rm -r nvim-linux64*
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
-# Apply dotfile
 mkdir -p ~/.config/nvim
 mkdir -p ~/.vim
 
+# Apply dotfile
 stow --adopt --ignore init.sh --ignore .git -t ~ .
 
 dir=$(dirname $0)
-git=$($dir/.git)
+git=$dir/.git
 
 git --git-dir $git --work-tree $dir stash -u
+
+zsh
