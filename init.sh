@@ -33,5 +33,12 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
 # Apply dotfile
-rm ~/.zshrc
-stow --ignore init.sh --ignore .git -t ~ .
+mkdir -p ~/.config/nvim
+mkdir -p ~/.vim
+
+stow --adopt --ignore init.sh --ignore .git -t ~ .
+
+dir=$(dirname $0)
+git=$($dir/.git)
+
+git --git-dir $git --work-tree $dir stash -u
