@@ -1,5 +1,6 @@
 apt update
 apt install git zsh stow wget curl -y
+apt install ripgrep trash-cli catimg httpie -y
 
 # Install OhMyZSH
 sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"

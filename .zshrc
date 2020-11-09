@@ -41,23 +41,15 @@ zle -N zle-line-init
 echo -ne '\e[5 q' # Use beam shape cursor on startup.
 preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 
-# # Use lf to switch directories and bind it to ctrl-o
-# lfcd () {
-#   tmp="$(mktemp)"
-#   lf -last-dir-path="$tmp" "$@"
-#   if [ -f "$tmp" ]; then
-#     dir="$(cat "$tmp")"
-#     rm -f "$tmp"
-#     [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
-#   fi
-# }
-# bindkey -s '^o' 'lfcd'
-
 # nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 alias vim=nvim
 alias vi=nvim
+alias trm=trash-put
+alias trml=trash-list
+alias trmf=tras-empty
 
 # ZSH_DISABLE_COMPFIX=true
