@@ -4,6 +4,8 @@ ZSH_THEME="robbyrussell"
 
 plugins=(git zsh-autosuggestions zsh-completions zsh-syntax-highlighting)
 
+source $ZSH/oh-my-zsh.sh
+
 # vi mode
 bindkey -v
 export KEYTIMEOUT=1
@@ -37,14 +39,6 @@ zle -N zle-line-init
 echo -ne '\e[5 q' # Use beam shape cursor on startup.
 preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 
-# nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-
-# Load ohmzsh and fzf
-source $ZSH/oh-my-zsh.sh
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 alias vim=nvim
 alias vi=nvim
 alias trm=trash-put
@@ -52,3 +46,10 @@ alias trml=trash-list
 alias trmf=tras-empty
 
 # ZSH_DISABLE_COMPFIX=true
+
+# nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
+# Load ohmzsh and fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
