@@ -47,6 +47,8 @@ Plug 'tomtom/tcomment_vim'
 Plug 'pangloss/vim-javascript', {
       \ 'for': ['javascript','typescript'],
       \ }
+Plug 'digitaltoad/vim-pug'
+Plug 'posva/vim-vue'
 
 " Indent and highlighting
 " Plug 'luochen1990/rainbow'

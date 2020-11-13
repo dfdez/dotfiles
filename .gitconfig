@@ -1,5 +1,6 @@
 [user]
-	email = this.codexjs@gmail.com
-	name = CodexJs
+	email = danifer.inbox@gmail.com
+	name = Dfdez
 [core]
 	excludesfile = /home/codex/.gitignore_global
+	editor = nvim
