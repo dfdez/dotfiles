@@ -16,31 +16,31 @@ let g:lightline = {
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'readonly', 'filename', 'gitbranch', 'modified' ] ],
-      \   'right': [ [ 'linter_errors', 'linter_warnings', 'linter_infos', 'luastatus'],
+      \   'right': [ [ 'linter_errors', 'linter_warnings', 'linter_infos'],
       \              [ 'percent','lineinfo'  ],
       \              [ 'fileformat', 'fileencoding', 'filetype' ]]
       \ },
       \ 'component_function': {
-      \   'luastatus': 'LspStatus',
       \   'gitbranch': 'FugitiveHead'
       \ },
       \ }
-let g:lightline.component_expand = {
-      \  'linter_infos': 'lightline#ale#infos',
-      \  'linter_warnings': 'lightline#ale#warnings',
-      \  'linter_errors': 'lightline#ale#errors',
-      \ }
-let g:lightline.component_type = {
-      \     'linter_infos': 'right',
-      \     'linter_warnings': 'warning',
-      \     'linter_errors': 'error',
-      \ }
-function! LspStatus() abort
-  if luaeval('#vim.lsp.buf_get_clients() > 0')
-    return luaeval("require('lsp-status').status()")
-  endif
-  return ''
-endfunction
+      " \   'luastatus': 'LspStatus',
+" let g:lightline.component_expand = {
+"       \  'linter_infos': 'lightline#ale#infos',
+"       \  'linter_warnings': 'lightline#ale#warnings',
+"       \  'linter_errors': 'lightline#ale#errors',
+"       \ }
+" let g:lightline.component_type = {
+"       \     'linter_infos': 'right',
+"       \     'linter_warnings': 'warning',
+"       \     'linter_errors': 'error',
+"       \ }
+" function! LspStatus() abort
+"   if luaeval('#vim.lsp.buf_get_clients() > 0')
+"     return luaeval("require('lsp-status').status()")
+"   endif
+"   return ''
+" endfunction
 
 " ALE config
 let g:ale_fixers = {
