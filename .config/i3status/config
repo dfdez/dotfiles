@@ -1,0 +1,16 @@
+general {
+        colors = false
+}
+
+order += "tztime local"
+order += "tztime day"
+
+tztime local {
+        format = "%H:%M"
+        timezone = "Europe/Madrid"
+}
+
+tztime day {
+        format = "%d-%m-%Y"
+        timezone = "Europe/Madrid"
+}
