@@ -2,6 +2,7 @@ env:
   term: xterm-256color
 font:
   size: 12
+  # size: 14.0
   normal:
     family: Hack Nerd Font
     style: Regular
@@ -27,7 +28,7 @@ colors:
   primary:
     # hard contrast: background = '#1d2021'
     background: '#282828'
-    # soft contrast: background = '#32302f'
+    # soft contrast: background = '#32303f'
     foreground: '#ebdbb2'
 
   # Normal colors

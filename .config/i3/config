@@ -58,8 +58,7 @@ bindsym $mod+Shift+q kill
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
-bindsym $mod+d exec rofi -modi drun -show drun -show-icons
-bindsym $mod+Return exec rofi -show combi -combi-modi "window#drun" -modi combi -show-icons
+bindsym $mod+Return exec rofi -monitor -4 -show combi -combi-modi "window#drun" -modi combi -show-icons
 bindsym $mod+Tab workspace next
 bindsym $mod+Shift+Tab workspace prev
 # change focus
@@ -132,7 +131,7 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
 
-# exec --no-startup-id i3-msg 'workspace 1; exec /usr/local/bin/alacritty; workspace 2; exec /usr/bin/brave-browser;'
+# exec --no-startup-id i3-msg 'workspace 1; exec /usr/local/bin/alacritty; workspace 2; exec /usr/bin/brave;'
 # exec --no-startup-id i3-msg 'workspace 3; layout tabbed; exec "source ~/.zshrc && cbb"'
 
 # switch to workspace
@@ -177,8 +176,8 @@ bindsym Control+$mod+Right move workspace to output right
 bindsym $mod+period exec "/usr/bin/bash -c 'pgrep alacritty && i3-msg workspace number 6 || alacritty --class AlacrittyDefault,AlacrittyDefault'"
 bindsym $mod+Shift+period layout splith; exec alacritty
 
-# bindsym $mod+comma exec brave-browser
-bindsym $mod+comma exec /usr/bin/bash -c 'pgrep brave-browser && i3-msg "workspace number 1" || brave-browser'
+# bindsym $mod+comma exec brave
+bindsym $mod+comma exec /usr/bin/bash -c 'pgrep brave && i3-msg "workspace number 1" || brave'
 
 
 # Prevent windows mosuse issue
@@ -281,7 +280,7 @@ workspace $ws10 output primary
 
 assign [class="AlacrittyDefault"] 6
 assign [class="robo3t"] 6
-assign [class="Brave-browser"] 1
+assign [class="Brave"] 1
 assign [class="Code"] 7
 # assign [class="Spotify"] 2
 for_window [class="Spotify"] move window to workspace $ws2; workspace $ws2; move workspace to output $secundary
@@ -289,16 +288,16 @@ for_window [class="Spotify"] move window to workspace $ws2; workspace $ws2; move
 assign [class="Slack"] 8
 assign [class="discord"] 8
 
-exec --no-startup-id "feh --bg-scale ~/repos/dotfiles/background.jpg"
+exec --no-startup-id "feh --bg-scale ~/dotfiles/background.jpg"
 # exec --no-startup-id "alacritty --class AlacrittyDefault,AlacrittyDefault -e /bin/zsh -c tmux-work"
-exec --no-startup-id "brave-browser"
+exec --no-startup-id "brave"
 exec --no-startup-id "spotify"
 exec --no-startup-id "~/.i3rc"
 
 # exec --no-startup-id slack
 # exec --no-startup-id discord
 
-# for_window [class="."] focus
+for_window [class="."] focus
 focus_on_window_activation focus
 
 

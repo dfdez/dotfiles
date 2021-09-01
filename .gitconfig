@@ -2,5 +2,5 @@
 	email = danifer.inbox@gmail.com
 	name = Dfdez
 [core]
-	excludesfile = /home/codex/.gitignore_global
+	excludesfile = ~/.gitignore_global
 	editor = nvim

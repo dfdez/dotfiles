@@ -39,11 +39,33 @@ zle -N zle-line-init
 echo -ne '\e[5 q' # Use beam shape cursor on startup.
 preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 
-alias vim=nvim
 alias vi=nvim
-alias trm=trash-put
-alias trml=trash-list
-alias trmf=tras-empty
+alias vim=nvim
+# alias trm=trash-put
+# alias trml=trash-list
+# alias trmf=tras-empty
+
+# BIPI
+alias bb='cd ~/repos/bipi/bipi-api && nvm use 14.17 && MONGO_DEBUG=false npm run backend'
+alias bn='cd ~/repos/bipi/bipicar.com-nuxt && nvm use 14.17 && npm run dev'
+alias bp='cd ~/repos/bipi/bipi-portal && nvm use 14.17 && npm run start'
+alias bc='cd ~/repos/bipi/bipi-cpanel && nvm use 14.17 && npm run serve'
+alias bl='cd ~/repos/bipi/logistics-portal && nvm use 14.17 && npm run serve'
+
+alias cbb='code ~/repos/bipi/bipi-api'
+alias cbn='code ~/repos/bipi/bipicar.com-nuxt'
+alias cbp='code ~/repos/bipi/bipi-portal'
+alias cbc='code ~/repos/bipi/bipi-cpanel'
+alias cbl='code ~/repos/bipi/logistics-portal'
+
+alias gp='git pull'
+alias gc='git checkout'
+alias gb='git branch'
+alias ggp='git push --set-upstream origin $(git branch --show-current)'
+
+alias xclip='scrot -s -e "xclip -selection clipboard -t \"image/png\" < \$f"'
+
+export TERM=xterm-256color
 
 # ZSH_DISABLE_COMPFIX=true
 
@@ -53,3 +75,5 @@ export NVM_DIR="$HOME/.nvm"
 
 # Load ohmzsh and fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+[ ! -z $DISPLAY ] || startx
