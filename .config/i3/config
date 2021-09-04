@@ -113,10 +113,7 @@ bindsym $mod+c focus child
 
 
 # Muto microphone
-# bindsym $mod+m exec amixer -D pulse sset Capture toggle
-# bindsym $mod+m exec amixer -c 1 sset Mic toggle
-# bindsym $mod+m exec amixer -c 1 sset Mic toggle && amixer -c 3 sset Mic toggle
-bindsym $mod+m exec amixer -c 1 sset Mic toggle; exec amixer -c 3 sset Mic toggle
+bindsym $mod+m exec amixer set Capture toggle
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
