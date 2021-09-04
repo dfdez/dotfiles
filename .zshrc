@@ -65,6 +65,9 @@ alias ggp='git push --set-upstream origin $(git branch --show-current)'
 
 alias xclip='scrot -s -e "xclip -selection clipboard -t \"image/png\" < \$f"'
 
+export EDITOR=nvim
+bindkey '^e' edit-command-line
+
 export TERM=xterm-256color
 
 # ZSH_DISABLE_COMPFIX=true
