@@ -14,7 +14,7 @@ Plug 'nvim-lua/diagnostic-nvim'
 Plug 'nvim-lua/lsp-status.nvim'
 
 "Completion
-Plug 'aca/completion-tabnine', { 'do': './install.sh' }
+# Plug 'aca/completion-tabnine', { 'do': './install.sh' }
 
 " Debug
 " Plug 'puremourning/vimspector'

@@ -41,22 +41,23 @@ preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 
 alias vi=nvim
 alias vim=nvim
+alias cat='bat --paging=never --theme=gruvbox-dark'
 # alias trm=trash-put
 # alias trml=trash-list
 # alias trmf=tras-empty
 
-# BIPI
-alias bb='cd ~/repos/bipi/bipi-api && nvm use 14.17 && MONGO_DEBUG=false npm run backend'
-alias bn='cd ~/repos/bipi/bipicar.com-nuxt && nvm use 14.17 && npm run dev'
-alias bp='cd ~/repos/bipi/bipi-portal && nvm use 14.17 && npm run start'
-alias bc='cd ~/repos/bipi/bipi-cpanel && nvm use 14.17 && npm run serve'
-alias bl='cd ~/repos/bipi/logistics-portal && nvm use 14.17 && npm run serve'
-
-alias cbb='code ~/repos/bipi/bipi-api'
-alias cbn='code ~/repos/bipi/bipicar.com-nuxt'
-alias cbp='code ~/repos/bipi/bipi-portal'
-alias cbc='code ~/repos/bipi/bipi-cpanel'
-alias cbl='code ~/repos/bipi/logistics-portal'
+# # BIPI
+# alias bb='cd ~/repos/bipi/bipi-api && nvm use 14.17 && MONGO_DEBUG=false npm run backend'
+# alias bn='cd ~/repos/bipi/bipicar.com-nuxt && nvm use 14.17 && npm run dev'
+# alias bp='cd ~/repos/bipi/bipi-portal && nvm use 14.17 && npm run start'
+# alias bc='cd ~/repos/bipi/bipi-cpanel && nvm use 14.17 && npm run serve'
+# alias bl='cd ~/repos/bipi/logistics-portal && nvm use 14.17 && npm run serve'
+#
+# alias cbb='code ~/repos/bipi/bipi-api'
+# alias cbn='code ~/repos/bipi/bipicar.com-nuxt'
+# alias cbp='code ~/repos/bipi/bipi-portal'
+# alias cbc='code ~/repos/bipi/bipi-cpanel'
+# alias cbl='code ~/repos/bipi/logistics-portal'
 
 alias gp='git pull'
 alias gc='git checkout'

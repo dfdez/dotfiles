@@ -59,8 +59,11 @@ bindsym $mod+Shift+q kill
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 bindsym $mod+Return exec rofi -monitor -4 -show combi -combi-modi "window#drun" -modi combi -show-icons
+bindsym $mod+Shift+Return exec rofi -monitor -4 -show emoji -modi emoji
+
 bindsym $mod+Tab workspace next
 bindsym $mod+Shift+Tab workspace prev
+
 # change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
@@ -86,10 +89,10 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # # split in horizontal orientation
-# bindsym $mod+semicolon split horizontal
+bindsym $mod+semicolon split horizontal
 #
 # # split in vertical orientation
-# bindsym $mod+v split vertical
+bindsym $mod+v split vertical
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -128,48 +131,61 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
 
-# exec --no-startup-id i3-msg 'workspace 1; exec /usr/local/bin/alacritty; workspace 2; exec /usr/bin/brave;'
-# exec --no-startup-id i3-msg 'workspace 3; layout tabbed; exec "source ~/.zshrc && cbb"'
-
 # switch to workspace
-# bindsym $mod+1 workspace number $ws1
-# bindsym $mod+2 workspace number $ws2
-# bindsym $mod+3 workspace number $ws3
-# bindsym $mod+4 workspace number $ws4
-# bindsym $mod+5 workspace number $ws5
+set $primary DP-4
 set $secundary HDMI-0
+set $tertiary DP-2-1
+set $fourth DP-2-0
+
 bindsym $mod+1 exec "i3-msg focus output $secundary; i3-msg workspace 1"
 bindsym $mod+2 exec "i3-msg focus output $secundary; i3-msg workspace 2"
 bindsym $mod+3 exec "i3-msg focus output $secundary; i3-msg workspace 3"
-bindsym $mod+4 exec "i3-msg focus output $secundary; i3-msg workspace 4"
-bindsym $mod+5 exec "i3-msg focus output $secundary; i3-msg workspace 5"
 
-bindsym $mod+6 workspace number $ws6
-bindsym $mod+7 workspace number $ws7
-bindsym $mod+8 workspace number $ws8
-bindsym $mod+9 workspace number $ws9
-bindsym $mod+0 workspace number $ws10
+bindsym $mod+4 exec "i3-msg focus output $primary; i3-msg workspace 4"
+bindsym $mod+5 exec "i3-msg focus output $primary; i3-msg workspace 5"
+bindsym $mod+6 exec "i3-msg focus output $primary; i3-msg workspace 6"
+
+bindsym $mod+7 exec "i3-msg focus output $tertiary; i3-msg workspace 7"
+bindsym $mod+8 exec "i3-msg focus output $tertiary; i3-msg workspace 8"
+
+bindsym $mod+9 exec "i3-msg focus output $fourth; i3-msg workspace 9"
+bindsym $mod+0 exec "i3-msg focus output $fourth; i3-msg workspace 10"
+
+
+# bindsym $mod+a exec "i3-msg focus output $primary; i3-msg workspace 6"
+#
+# bindsym $mod+s exec "i3-msg focus output $tertiary; i3-msg workspace 7"
+# bindsym $mod+d exec "i3-msg focus output $tertiary; i3-msg workspace 8"
+#
+# bindsym $mod+f exec "i3-msg focus output $fourth; i3-msg workspace 9"
+# bindsym $mod+g exec "i3-msg focus output $fourth; i3-msg workspace 10"
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number $ws1; workspace number $ws1
 bindsym $mod+Shift+2 move container to workspace number $ws2; workspace number $ws2
 bindsym $mod+Shift+3 move container to workspace number $ws3; workspace number $ws3
+
 bindsym $mod+Shift+4 move container to workspace number $ws4; workspace number $ws4
 bindsym $mod+Shift+5 move container to workspace number $ws5; workspace number $ws5
 bindsym $mod+Shift+6 move container to workspace number $ws6; workspace number $ws6
+
 bindsym $mod+Shift+7 move container to workspace number $ws7; workspace number $ws7
 bindsym $mod+Shift+8 move container to workspace number $ws8; workspace number $ws8
+
 bindsym $mod+Shift+9 move container to workspace number $ws9; workspace number $ws9
-bindsym $mod+Shift+0 move container to workspace number $ws10; workspace number $ws0
+bindsym $mod+Shift+0 move container to workspace number $ws10; workspace number $ws10
 
 bindsym Control+$mod+h move workspace to output left
+bindsym Control+$mod+j move workspace to output down
+bindsym Control+$mod+k move workspace to output up
 bindsym Control+$mod+l move workspace to output right
 
 bindsym Control+$mod+Left move workspace to output left
+bindsym Control+$mod+Down move workspace to output down
+bindsym Control+$mod+Up move workspace to output up
 bindsym Control+$mod+Right move workspace to output right
 
 # start a terminal
-# bindsym $mod+period exec alacritty
 bindsym $mod+period exec "/usr/bin/bash -c 'pgrep alacritty && i3-msg workspace number 6 || alacritty --class AlacrittyDefault,AlacrittyDefault'"
 bindsym $mod+Shift+period layout splith; exec alacritty
 
@@ -178,7 +194,8 @@ bindsym $mod+comma exec /usr/bin/bash -c 'pgrep brave && i3-msg "workspace numbe
 
 
 # Prevent windows mosuse issue
-mouse_warping none
+#mouse_warping none
+mouse_warping output
 # focus_follows_mouse no
 
 # reload the configuration file
@@ -187,7 +204,6 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 mode "[l]ogout, [r]eboot, [s]hutdown" {
-
   bindsym l exec i3-msg exit
 
   bindsym r exec systemctl reboot
@@ -218,7 +234,6 @@ mode "resize" {
         bindsym Escape mode "default"
         bindsym $mod+r mode "default"
 }
-
 bindsym $mod+r mode "resize"
 
 #set primary gruvbox colorscheme colors
@@ -256,43 +271,43 @@ bar {
 
 # class                 border|backgr|text|indicator|child_border
 client.focused          $yellow $yellow $darkgray $darkgray $darkgray
-# client.focused_inactive $darkgray $darkgray $yellow $purple $darkgray
-# client.unfocused        $darkgray $darkgray $yellow $purple $darkgray
 client.urgent           $aqua $aqua $white $aqua $aqua
 
 #Disable title font
 font pango:0
 
-workspace $ws1 output secundary
-workspace $ws2 output secundary
-workspace $ws3 output secundary
-workspace $ws4 output secundary
-workspace $ws5 output secundary
+workspace $ws1 output $secundary
+workspace $ws2 output $secundary
+workspace $ws3 output $secundary
 
-workspace $ws6 output primary
-workspace $ws7 output primary
-workspace $ws8 output primary
-workspace $ws9 output primary
-workspace $ws10 output primary
+workspace $ws4 output $primary
+workspace $ws5 output $primary
+workspace $ws6 output $primary
 
-assign [class="AlacrittyDefault"] 6
-assign [class="robo3t"] 6
+workspace $ws7 output $tertiary
+workspace $ws8 output $tertiary
+
+workspace $ws9 output $fourth
+workspace $ws10 output $fourth
+
 assign [class="Brave"] 1
-assign [class="Code"] 7
-# assign [class="Spotify"] 2
 for_window [class="Spotify"] move window to workspace $ws2; workspace $ws2; move workspace to output $secundary
+# assign [class=""] 3
 
-assign [class="Slack"] 8
-assign [class="discord"] 8
+#assign [class=""] 4
+# assign [class=""] 5
+assign [class="Code"] 6
 
-exec --no-startup-id "feh --bg-scale ~/dotfiles/background.jpg"
-# exec --no-startup-id "alacritty --class AlacrittyDefault,AlacrittyDefault -e /bin/zsh -c tmux-work"
+assign [class="AlacrittyDefault"] 7
+assign [class="robo3t"] 8
+
+assign [class="Slack"] 9
+assign [class="discord"] 10
+
+exec --no-startup-id "feh --bg-fill ~/dotfiles/background.jpg"
 exec --no-startup-id "brave"
 exec --no-startup-id "spotify"
 exec --no-startup-id "~/.i3rc"
-
-# exec --no-startup-id slack
-# exec --no-startup-id discord
 
 for_window [class="."] focus
 focus_on_window_activation focus
