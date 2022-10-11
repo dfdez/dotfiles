@@ -41,7 +41,7 @@ preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 
 alias vi=nvim
 alias vim=nvim
-alias cat='bat --paging=never --theme=gruvbox-dark'
+alias bat='bat --paging=never --theme=gruvbox-dark'
 # alias trm=trash-put
 # alias trml=trash-list
 # alias trmf=tras-empty
